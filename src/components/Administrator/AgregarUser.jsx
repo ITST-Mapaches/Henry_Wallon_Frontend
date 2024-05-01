@@ -89,10 +89,11 @@ const AgregarUser = () => {
       // vuelve a cargar los usuarios
       loadUsers();
       
+      //si el tipo de usuario a agregar es un usuario se recargan los tutores
+      if (rol == 'usuario') {reFetchTutores()};
+
       // limpia el formulario
       onResetForm();
-
-      reFetchTutores();
     } catch (error) {
       console.log(error)
       toast.error("Error al intentar agregar usuario!");

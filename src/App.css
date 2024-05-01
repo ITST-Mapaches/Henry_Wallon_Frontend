@@ -2,8 +2,8 @@
   --primary-color: #21182F;
   --secondary-color: white;
   --third-color: #f3e627;
-  --primary-FZ: 2.8rem;
-  --secondary-FZ: 1.5rem;
+  --primary-FZ: 2.4rem;
+  --secondary-FZ: 1.4rem;
   --primary-font-weight: 800;
   --secondary-font-weight: 600;
   --third-font-weight: 400;
@@ -15,20 +15,14 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-html {
-  /* scrollbar-width: thin;
-  scrollbar-color: red blue;
-  scrollbar-gutter: stable; */
+  scrollbar-width: none;
 }
 
 body {
+  width: 100%;
+  min-height: 100vh;
   font-family: Helvetica, sans-serif;
-  overflow: hidden;
-  scrollbar-width: thin;
-  scrollbar-color: red blue;
-  scrollbar-gutter: stable;
+  /* overflow: hidden; */
 }
 
 ::selection {

@@ -1,9 +1,9 @@
 import { Button, Label, Modal, TextInput, Datepicker, Select, ToggleSwitch, Tooltip} from "flowbite-react";
 import { useContext, useEffect, useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
-import { UsersContext } from "../../context/UsersContext";
+import { UsersContext } from "../../../context/UsersContext";
 import axios from "axios";
-import { useForm, useFetch } from "../../hooks/";
+import { useForm, useFetch } from "../../../hooks";
 
 const AgregarUser = () => {
   // obtencion de metodo cargar usuarios

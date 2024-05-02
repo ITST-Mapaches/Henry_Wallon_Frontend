@@ -1,13 +1,13 @@
 import { Button, Label, Modal, TextInput, Datepicker, Select, ToggleSwitch, Tooltip} from "flowbite-react";
 import { useContext, useEffect, useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
-import { UsersContext } from "../../../context/UsersContext";
+import { UsersContext } from "../../../context/UsersContextProvider";
 import axios from "axios";
 import { useForm, useFetch } from "../../../hooks";
 
 const AgregarUser = () => {
   // obtencion de metodo cargar usuarios
-  const { loadUsers } = useContext(UsersContext);
+  const { getFetch: loadUsers } = useContext(UsersContext);
 
   // manejo de estado de formulario con custom hook
   const {  form,  nombre,  ap_paterno,  ap_materno,  nacimiento,  telefono,  nombre_usuario,  contrasena,  activo,  id_sexo,  id_rol,  num_control, id_usuario_tutor, id_periodo, id_grupo,  cedula_prof,  onInputChange,  onResetForm,

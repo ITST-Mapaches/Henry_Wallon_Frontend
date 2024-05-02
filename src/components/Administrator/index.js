@@ -8,7 +8,7 @@ import ModalEliminar from "./UsersModule/ModalEliminar";
 import ModalViewUser from "./UsersModule/ModalViewUser";
 
 // modulo asignaturas
-import Asignaturas from "./Asignaturas";
+import Asignaturas from "./MattersModule/Asignaturas";
 
 // grupos
 import Grupos from "./Grupos";

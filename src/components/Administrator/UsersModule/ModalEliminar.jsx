@@ -2,7 +2,7 @@ import axios from "axios";
 import { Button, Modal, Tooltip } from "flowbite-react";
 import { useState, useContext } from "react";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
-import { UsersContext } from "../../../context/UsersContext";
+import { UsersContext } from "../../../context/UsersContextProvider";
 import { Toaster, toast } from "react-hot-toast";
 
 const ModalEliminar = ({ id, name }) => {
@@ -10,7 +10,7 @@ const ModalEliminar = ({ id, name }) => {
   const [openModal, setOpenModal] = useState(false);
 
   // uso de contexto, desestructurando funcion para cargar usuarios
-  const { loadUsers } = useContext(UsersContext);
+  const { getFetch: loadUsers } = useContext(UsersContext);
 
   const eliminar = async (id) => {
     try {

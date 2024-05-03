@@ -12,7 +12,7 @@ const TableRowUser = ({ id, name, username, activo, sexo, rol }) => {
 
   return (
     <>
-      <tr className="bg-[#21182F]">
+      <tr className="bg-primary">
         <td className="p-4 rounded-s-2xl text-left">
           <div className="flex align-items-center">
             <span className="rounded-full h-12 w-12 shadow-sm shadow-white text-primary bg-white flex items-center justify-center font-bold text-lg">

@@ -17,7 +17,7 @@ const Users = () => {
         : users.length > 0 ? (
           <table className="m-auto text-center text-white animate-jump-in">
             <thead className="after:content-[''] after:block after:h-4">
-              <tr className="bg-[#21182F]">
+              <tr className="bg-primary">
                 <th className="p-4 rounded-s-2xl">Usuario</th>
                 <th className="p-4">Estatus cuenta</th>
                 <th className="p-4">Sexo</th>

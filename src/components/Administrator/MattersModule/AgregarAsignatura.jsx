@@ -37,9 +37,9 @@ const AgregarAsignatura = () => {
         try {
         // envia el formulario al endpoint
         const response = await axios.post(import.meta.env.VITE_BASE_URL + 'asignaturas', form);
-        
-        const {data} = response.data;
 
+        const {data} = response.data;
+        
         setMateria(data);
         
         //mensaje
@@ -55,7 +55,8 @@ const AgregarAsignatura = () => {
         cargarAsignaturas();
 
         } catch (error) {
-        toast.error("Error al intentar agregar materia!");
+            console.log(error)
+            toast.error("Error al intentar agregar materia!");
         }
     };
 
@@ -73,11 +74,11 @@ const AgregarAsignatura = () => {
         
 
             {
-                openDocentes ?
-                < AsignacionDocentes id={materia.id} nombre={materia.nombre} openDocentes={openDocentes} setOpenDocentes={setOpenDocentes} /> 
+                openDocentes 
+                ?
+                (< AsignacionDocentes id={materia.id} nombre={materia.nombre} openDocentes={openDocentes} setOpenDocentes={setOpenDocentes} />)
                 :
                 (
-                
                 <Modal show={openModal} size="xl" className="bg-primary" popup>
                     <Modal.Header />
                     <Modal.Body>
@@ -149,7 +150,7 @@ const AgregarAsignatura = () => {
                             <Tooltip content="Limpiar todo el formulario" placement="bottom" style="dark">
                                 <Button color="" type="submit" className="hover:scale-105 active:scale-95 px-2 text-white  inline-block bg-yellow-300 hover:bg-yellow-400 font-bold" onClick={() => { onResetForm() }} >Limpiar</Button>
                             </Tooltip>
-                            <Tooltip content="Agregar usuario y cerrar" placement="bottom" style="dark">
+                            <Tooltip content="Agregar asignatura y cerrar" placement="bottom" style="dark">
                                 <Button type="submit" className="hover:scale-105 active:scale-95 px-2 inline-block bg-sky-600 font-bold">Confirmar</Button>
                             </Tooltip>
                             </div>

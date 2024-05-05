@@ -34,7 +34,7 @@ const AgregarUser = () => {
   // fetching de data a endpoint grupos
   const { data: grupos, isLoading: isLoadingGrupos } = useFetch("grupos");
 
-  const { data: tutores, isLoading: isLoadingTutores, reFetch: reFetchTutores } = useFetch("getUsuarios/tutores");
+  const { data: tutores, isLoading: isLoadingTutores, getFetch: reloadTutores } = useFetch("getUsuarios/tutores");
 
   //efecto secundario ante el cambio de estado de usuario
   useEffect(() => {
@@ -90,7 +90,7 @@ const AgregarUser = () => {
       loadUsers();
       
       //si el tipo de usuario a agregar es un usuario se recargan los tutores
-      if (rol == 'usuario') {reFetchTutores()};
+      if (rol == 'usuario') {reloadTutores()};
 
       // limpia el formulario
       onResetForm();

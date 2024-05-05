@@ -9,6 +9,13 @@ import ModalViewUser from "./UsersModule/ModalViewUser";
 
 // modulo asignaturas
 import Asignaturas from "./MattersModule/Asignaturas";
+import AgregarAsignatura from "./MattersModule/AgregarAsignatura";
+import AsignacionDocentes from "./MattersModule/AsignacionDocentes";
+import MatterModalEliminar from "./MattersModule/MatterModalEliminar";
+import TableRowMatter from "./MattersModule/TableRowMatter";
+import UpdateMatter from "./MattersModule/UpdateMatter";
+import UpdateAsignacionDocentes from "./MattersModule/UpdateAsignacionDocentes";
+import ModalViewMatter from "./MattersModule/ModalViewMatter";
 
 // grupos
 import Grupos from "./Grupos";
@@ -24,6 +31,13 @@ export {
   ModalEliminar,
   ModalViewUser,
   Asignaturas,
+  AgregarAsignatura,
+  AsignacionDocentes,
+  MatterModalEliminar,
+  TableRowMatter,
+  UpdateMatter,
+  UpdateAsignacionDocentes,
+  ModalViewMatter,
   Grupos,
   PeriodosEscolares,
 };

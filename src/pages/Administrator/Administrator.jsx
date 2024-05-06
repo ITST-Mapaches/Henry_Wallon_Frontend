@@ -4,6 +4,7 @@ import { Sidebar, Users, Asignaturas, Grupos, PeriodosEscolares} from "../../com
 import { Navbar } from "../../components/commons";
 import {UsersContextProvider} from "../../context/UsersContextProvider";
 import { AsignaturasContextProvider } from "../../context/AsignaturasContextProvider";
+import { GruposContextProvider } from "../../context/GruposContextProvider";
 
 const Administrator = () => {
   return (
@@ -30,7 +31,15 @@ const Administrator = () => {
             </ AsignaturasContextProvider>
             } 
           />
-        <Route path="grupos" element={<Grupos />} />
+
+        <Route path="grupos" 
+          element={
+            <GruposContextProvider>
+              <Grupos />
+            </GruposContextProvider>
+          } 
+          />
+        
         <Route path="periodos" element={<PeriodosEscolares />} />
       </Routes>
     </>

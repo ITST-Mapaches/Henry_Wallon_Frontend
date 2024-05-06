@@ -4,7 +4,7 @@ import axios from "axios";
 export const useFetch = (endpoint) => {
   //estado inicial
   const [state, setState] = useState({
-    data: null,
+    data: [],
     isLoading: true,
   });
 
@@ -30,7 +30,7 @@ export const useFetch = (endpoint) => {
     } catch (error) {
       // actualizando el state con los valores correspondientes
       setState({
-        data: null,
+        data: [],
         isLoading: false,
       });
     }

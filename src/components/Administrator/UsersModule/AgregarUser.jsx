@@ -312,7 +312,7 @@ const AgregarUser = () => {
                   </div>
                 </div>
                 {/* buttons */}
-                <div className="w-6/12 mx-auto mt-4 flex justify-around">
+                <div className="w-6/12 mx-auto mt-12 flex justify-around">
                   <Tooltip content="Cancelar y cerrar" placement="bottom" style="dark">
                       <Button color="" className="hover:scale-105 active:scale-95 px-2  text-white inline-block bg-red-600 hover:bg-red-800 font-bold" onClick={() => { setOpenModal(false) }}>Cancelar</Button>
                   </Tooltip>

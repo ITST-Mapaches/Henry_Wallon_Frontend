@@ -18,7 +18,11 @@ import UpdateAsignacionDocentes from "./MattersModule/UpdateAsignacionDocentes";
 import ModalViewMatter from "./MattersModule/ModalViewMatter";
 
 // grupos
-import Grupos from "./Grupos";
+import Grupos from "./GroupsModule/Grupos";
+import AgregarGrupo from "./GroupsModule/AgregarGrupo";
+import ModalEliminarGroup from "./GroupsModule/ModalEliminarGroup";
+import UpdateGroup from "./GroupsModule/UpdateGroup";
+import TableRowGroup from "./GroupsModule/TableRowGroup";
 
 // periodos
 import PeriodosEscolares from "./PeriodosEscolares";
@@ -40,4 +44,8 @@ export {
   ModalViewMatter,
   Grupos,
   PeriodosEscolares,
+  AgregarGrupo,
+  ModalEliminarGroup,
+  UpdateGroup,
+  TableRowGroup,
 };

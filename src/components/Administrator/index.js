@@ -25,7 +25,12 @@ import UpdateGroup from "./GroupsModule/UpdateGroup";
 import TableRowGroup from "./GroupsModule/TableRowGroup";
 
 // periodos
-import PeriodosEscolares from "./PeriodosEscolares";
+import PeriodosEscolares from "./PeriodsModule/PeriodosEscolares";
+import AgregarPeriodo from "./PeriodsModule/AgregarPeriodo";
+import EliminarPeriod from "./PeriodsModule/EliminarPeriod";
+import ModalViewPeriod from "./PeriodsModule/ModalViewPeriod";
+import TableRowPeriod from "./PeriodsModule/TableRowPeriod";
+import UpdatePeriod from "./PeriodsModule/UpdatePeriod";
 
 export {
   Sidebar,
@@ -48,4 +53,9 @@ export {
   ModalEliminarGroup,
   UpdateGroup,
   TableRowGroup,
+  AgregarPeriodo,
+  EliminarPeriod,
+  ModalViewPeriod,
+  TableRowPeriod,
+  UpdatePeriod,
 };

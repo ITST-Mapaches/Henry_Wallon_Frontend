@@ -1,7 +1,7 @@
 :root {
-  --primary-color: #21182F;
+  --primary-color: #0B0E14;
   --secondary-color: white;
-  --third-color: #f3e627;
+  --third-color: #E02424;
   --primary-FZ: 2.4rem;
   --secondary-FZ: 1.4rem;
   --primary-font-weight: 800;
@@ -16,6 +16,7 @@
   padding: 0;
   box-sizing: border-box;
   scrollbar-width: none;
+  outline: none;
 }
 
 body {

@@ -1,21 +1,51 @@
-import AgregarUser from "./AgregarUser";
-import Asignaturas from "./Asignaturas";
-import Grupos from "./Grupos";
-import ModalEliminar from "./ModalEliminar";
-import ModalViewUser from "./ModalViewUser";
-import PeriodosEscolares from "./PeriodosEscolares";
 import Sidebar from "./Sidebar";
-import TableRowUser from "./TableRowUser";
-import Users from "./Users";
+
+// modulo usuarios
+import Users from "./UsersModule/Users";
+import TableRowUser from "./UsersModule/TableRowUser";
+import AgregarUser from "./UsersModule/AgregarUser";
+import ModalEliminar from "./UsersModule/ModalEliminar";
+import ModalViewUser from "./UsersModule/ModalViewUser";
+
+// modulo asignaturas
+import Asignaturas from "./MattersModule/Asignaturas";
+import AgregarAsignatura from "./MattersModule/AgregarAsignatura";
+import AsignacionDocentes from "./MattersModule/AsignacionDocentes";
+import MatterModalEliminar from "./MattersModule/MatterModalEliminar";
+import TableRowMatter from "./MattersModule/TableRowMatter";
+import UpdateMatter from "./MattersModule/UpdateMatter";
+import UpdateAsignacionDocentes from "./MattersModule/UpdateAsignacionDocentes";
+import ModalViewMatter from "./MattersModule/ModalViewMatter";
+
+// grupos
+import Grupos from "./GroupsModule/Grupos";
+import AgregarGrupo from "./GroupsModule/AgregarGrupo";
+import ModalEliminarGroup from "./GroupsModule/ModalEliminarGroup";
+import UpdateGroup from "./GroupsModule/UpdateGroup";
+import TableRowGroup from "./GroupsModule/TableRowGroup";
+
+// periodos
+import PeriodosEscolares from "./PeriodosEscolares";
 
 export {
+  Sidebar,
+  Users,
+  TableRowUser,
   AgregarUser,
-  Asignaturas,
-  Grupos,
   ModalEliminar,
   ModalViewUser,
+  Asignaturas,
+  AgregarAsignatura,
+  AsignacionDocentes,
+  MatterModalEliminar,
+  TableRowMatter,
+  UpdateMatter,
+  UpdateAsignacionDocentes,
+  ModalViewMatter,
+  Grupos,
   PeriodosEscolares,
-  Sidebar,
-  TableRowUser,
-  Users,
+  AgregarGrupo,
+  ModalEliminarGroup,
+  UpdateGroup,
+  TableRowGroup,
 };

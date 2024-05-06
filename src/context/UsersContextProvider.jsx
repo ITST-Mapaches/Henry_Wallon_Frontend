@@ -1,12 +1,15 @@
-import {UsersContext} from "./UsersContext";
-import { useUsers } from "../hooks/useUsers";
+import { createContext } from "react";
+import {useFetch} from '../hooks/';
+
+//creacion de un nuevo contexto
+const UsersContext = createContext();
 
 const UsersContextProvider = ({ children }) => {
   return (
-    < UsersContext.Provider value={useUsers()} >
-        {children}
-    </ UsersContext.Provider >
+    <UsersContext.Provider value={useFetch("getUsuarios")}>
+      {children}
+    </UsersContext.Provider>
   );
 };
 
-export default UsersContextProvider;
+export { UsersContext, UsersContextProvider };

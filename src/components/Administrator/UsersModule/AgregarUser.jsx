@@ -1,13 +1,13 @@
 import { Button, Label, Modal, TextInput, Datepicker, Select, ToggleSwitch, Tooltip} from "flowbite-react";
 import { useContext, useEffect, useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
-import { UsersContext } from "../../context/UsersContext";
+import { UsersContext } from "../../../context/UsersContextProvider";
 import axios from "axios";
-import { useForm, useFetch } from "../../hooks/";
+import { useForm, useFetch } from "../../../hooks";
 
 const AgregarUser = () => {
   // obtencion de metodo cargar usuarios
-  const { loadUsers } = useContext(UsersContext);
+  const { getFetch: loadUsers } = useContext(UsersContext);
 
   // manejo de estado de formulario con custom hook
   const {  form,  nombre,  ap_paterno,  ap_materno,  nacimiento,  telefono,  nombre_usuario,  contrasena,  activo,  id_sexo,  id_rol,  num_control, id_usuario_tutor, id_periodo, id_grupo,  cedula_prof,  onInputChange,  onResetForm,
@@ -34,7 +34,7 @@ const AgregarUser = () => {
   // fetching de data a endpoint grupos
   const { data: grupos, isLoading: isLoadingGrupos } = useFetch("grupos");
 
-  const { data: tutores, isLoading: isLoadingTutores, reFetch: reFetchTutores } = useFetch("getUsuarios/tutores");
+  const { data: tutores, isLoading: isLoadingTutores, getFetch: reloadTutores } = useFetch("getUsuarios/tutores");
 
   //efecto secundario ante el cambio de estado de usuario
   useEffect(() => {
@@ -90,7 +90,7 @@ const AgregarUser = () => {
       loadUsers();
       
       //si el tipo de usuario a agregar es un usuario se recargan los tutores
-      if (rol == 'usuario') {reFetchTutores()};
+      if (rol == 'usuario') {reloadTutores()};
 
       // limpia el formulario
       onResetForm();
@@ -312,7 +312,7 @@ const AgregarUser = () => {
                   </div>
                 </div>
                 {/* buttons */}
-                <div className="w-6/12 mx-auto mt-4 flex justify-around">
+                <div className="w-6/12 mx-auto mt-12 flex justify-around">
                   <Tooltip content="Cancelar y cerrar" placement="bottom" style="dark">
                       <Button color="" className="hover:scale-105 active:scale-95 px-2  text-white inline-block bg-red-600 hover:bg-red-800 font-bold" onClick={() => { setOpenModal(false) }}>Cancelar</Button>
                   </Tooltip>

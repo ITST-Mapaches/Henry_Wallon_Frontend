@@ -1,10 +1,12 @@
 import React, { useContext } from 'react'
 import { Popover } from 'flowbite-react'
 import {TitleContext} from '../../context/TitleContextProvider';
+import { AuthContext } from '../../context/AuthContextProvider';
 
 const Navbar = () => {
   // accediendo al titulo a través del contexto de titulo
   const {title} = useContext(TitleContext);
+  const {setUser} = useContext(AuthContext);
   return (
     <nav className="fixed top-0 z-50 w-screen bg-primary">
     <div className="px-3 py-3 lg:px-5 lg:pl-3">
@@ -23,7 +25,7 @@ const Navbar = () => {
             </div>
             <span className="self-center text-white text-xl font-semibold sm:text-2xl whitespace-nowrap">{title}</span>
             <Popover content={
-              <button className="px-3 py-2 flex gap-2 hover:bg-slate-100 font-semibold">
+              <button className="px-3 py-2 flex gap-2 hover:bg-slate-100 font-semibold" onClick={() => { setUser(null) }}>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor" className="w-6 h-6">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15m-3 0-3-3m0 0 3-3m-3 3H15" />
                 </svg>

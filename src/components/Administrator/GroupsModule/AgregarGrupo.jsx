@@ -2,8 +2,7 @@ import { useState, useContext } from "react";
 import { Modal, Label, TextInput, Tooltip, Button } from "flowbite-react";
 import { GruposContext } from '../../../context/GruposContextProvider'
 import { Toaster, toast } from "react-hot-toast";
-import { useForm } from "../../../hooks";
-import axios from "axios";
+import { useForm, usePost } from "../../../hooks";
 
 const AgregarGrupo = () => {
 
@@ -25,7 +24,7 @@ const AgregarGrupo = () => {
 
         try{
             // envia el formulario al endpoint
-            await axios.post(import.meta.env.VITE_BASE_URL + 'grupos', form);
+            await usePost('grupos', form);
 
             //mensaje
             toast.success("Grupo agregado con éxito!");

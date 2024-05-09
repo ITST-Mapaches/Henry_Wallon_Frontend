@@ -2,8 +2,7 @@ import { Label, TextInput, Button, Datepicker } from "flowbite-react";
 import { useState, useContext } from "react";
 import { PeriodosContext } from "../../../context/PeriodosContext";
 import { Toaster, toast } from "react-hot-toast";
-import { useForm } from "../../../hooks";
-import axios from "axios";
+import { useForm, usePut } from "../../../hooks";
 
 const UpdatePeriod = ({id, numero: num, nombre_tipo: nt, fecha_inicio: fi, fecha_fin: ff, setOpenModal}) => {
     // uso de custom hook para manipulación de formulario
@@ -25,7 +24,7 @@ const UpdatePeriod = ({id, numero: num, nombre_tipo: nt, fecha_inicio: fi, fecha
 
         try{
             // envia el formulario al endpoint
-            await axios.put(import.meta.env.VITE_BASE_URL + `periodos/${id}`, form);
+            await usePut(`periodos/${id}`, form);
 
             //mensaje
             toast.success("Periodo actualizado con éxito!");

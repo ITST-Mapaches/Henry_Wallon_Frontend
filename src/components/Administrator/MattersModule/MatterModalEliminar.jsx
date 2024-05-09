@@ -1,9 +1,9 @@
-import axios from "axios";
 import { Button, Modal, Tooltip } from "flowbite-react";
 import { useContext, useState } from "react";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
 import { Toaster, toast } from "react-hot-toast";
 import { AsignaturasContext } from "../../../context/AsignaturasContextProvider";
+import { useDelete } from "../../../hooks";
 
 const MatterModalEliminar = ({ id, clave }) => {
   // estado para mostrar modal
@@ -13,7 +13,7 @@ const MatterModalEliminar = ({ id, clave }) => {
 
   const eliminar = async (id) => {
     try {
-      await axios.delete(import.meta.env.VITE_BASE_URL + "asignaturas/" + id);
+      await useDelete("asignaturas/" + id);
       cargarAsignaturas();
       toast.success("Materia eliminada!");
     } catch (error) {

@@ -4,7 +4,7 @@ import { useFetch } from "../../../hooks/useFetch";
 import { useForm } from "../../../hooks/useForm";
 import { UsersContext } from "../../../context/UsersContextProvider";
 import { toast } from "react-hot-toast";
-import axios from "axios";
+import { usePut } from "../../../hooks";
 
 const UpdateUser = ({ user, inputRole, rol, setOpenModal }) => {
   // obtencion de metodo cargar usuarios
@@ -51,12 +51,8 @@ const UpdateUser = ({ user, inputRole, rol, setOpenModal }) => {
     const roll =
       rol === "Docente" || rol === "Alumno" ? rol.toLowerCase() : "usuario";
 
-    // define endpoint a usar
-    const endpoint = import.meta.env.VITE_BASE_URL + `${roll}s/${user.id}`;
-
     try {
-      // envia el formulario al endpoint
-      await axios.put(endpoint, form);
+      await usePut(`${roll}s/${user.id}`, form);
 
       //mensaje
       toast.success("Usuario actualizado con éxito!");

@@ -1,7 +1,6 @@
-import { useFetch, useForm } from "../../../hooks";
+import { useFetch, useForm, usePut } from "../../../hooks";
 import { Label, Select, Button} from "flowbite-react";
 import { Loader } from "../../commons";
-import axios from "axios";
 import { toast } from "react-hot-toast";
 import { useState } from "react";
 
@@ -32,9 +31,8 @@ const UpdateAsignacionDocentes = ({asignaturaDatetails, setOpenModal}) => {
         const formulario = {...form, id_materia: asignaturaDatetails[0].id_asignatura};
 
         // envia el formulario al endpoint para actualizar
-        await axios.put(import.meta.env.VITE_BASE_URL + "asignaturadocentegrupo", formulario);
+        await usePut("asignaturadocentegrupo", formulario);
 
-        // console.log(formulario)
         //mensaje
         toast.success("Información actualizada con éxito!");
 

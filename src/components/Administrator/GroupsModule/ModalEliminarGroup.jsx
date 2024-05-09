@@ -3,7 +3,7 @@ import { HiOutlineExclamationCircle } from "react-icons/hi";
 import { Tooltip, Button, Modal } from "flowbite-react";
 import { Toaster, toast } from "react-hot-toast";
 import { useState, useContext } from "react";
-import axios from "axios";
+import { useDelete } from '../../../hooks';
 
 const ModalEliminarGroup = ({id, prefijo}) => {
     // estado para mostrar modal
@@ -14,8 +14,8 @@ const ModalEliminarGroup = ({id, prefijo}) => {
 
     const eliminar = async (id) => {
         try {
-            // peticion delete al endpoint que elimina un usuario
-            await axios.delete(import.meta.env.VITE_BASE_URL + "grupos/" + id);
+            // peticion delete al endpoint que elimina un grupo
+            await useDelete("grupos/" + id);
             
             // mensaje de exito
             toast.success("Grupo eliminado!");
@@ -45,19 +45,15 @@ const ModalEliminarGroup = ({id, prefijo}) => {
             <div className="text-center">
                 <HiOutlineExclamationCircle className="mx-auto mb-4 h-14 w-14 text-gray-400 " />
                 <h3 className="mb-5 text-lg font-bold text-primary">
-                ¿Estás seguro de que quieres eliminar el grupo?
-                <br />
-                <span class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-red-600 relative inline-block">
-                    <span class="relative text-white"> {id + ": " + prefijo}</span>
-                </span>
+                    ¿Estás seguro de que quieres eliminar el grupo?
+                    <br />
+                    <span class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-red-600 relative inline-block">
+                        <span class="relative text-white"> {id + ": " + prefijo}</span>
+                    </span>
                 </h3>
                 <div className="flex justify-center gap-4">
-                <Button color="" className="bg-red-600 font-semibold text-white hover:scale-105 active:scale-95 hover:bg-red-700" onClick={() => { setOpenModal(false); eliminar(id);}}> Sí, estoy seguro </Button>
-                <Button color="" className="bg-sky-600 font-semibold text-white hover:scale-105 active:scale-95 hover:bg-sky-700"
-                    onClick={() => setOpenModal(false)}
-                >
-                    No, cancelar
-                </Button>
+                    <Button color="" className="bg-red-600 font-semibold text-white hover:scale-105 active:scale-95 hover:bg-red-700" onClick={() => { setOpenModal(false); eliminar(id);}}> Sí, estoy seguro </Button>
+                    <Button color="" className="bg-sky-600 font-semibold text-white hover:scale-105 active:scale-95 hover:bg-sky-700" onClick={() => setOpenModal(false)}>No, cancelar</Button>
                 </div>
             </div>
             </Modal.Body>

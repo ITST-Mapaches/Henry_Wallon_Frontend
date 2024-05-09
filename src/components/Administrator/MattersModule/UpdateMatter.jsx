@@ -3,8 +3,8 @@ import { useState, useContext } from "react";
 import { useFetch } from "../../../hooks/useFetch";
 import { useForm } from "../../../hooks/useForm";
 import { toast } from "react-hot-toast";
-import axios from "axios";
 import { AsignaturasContext } from "../../../context/AsignaturasContextProvider";
+import { usePut } from "../../../hooks";
 
 const UpdateMatter = ({ asignatura, setOpenModal }) => {
   //uso de contexto de asignaturas
@@ -32,7 +32,7 @@ const UpdateMatter = ({ asignatura, setOpenModal }) => {
 
     try {
       // envia el formulario al endpoint
-      await axios.put(import.meta.env.VITE_BASE_URL + `asignaturas/${asignatura.id}`, form);
+      await usePut(`asignaturas/${asignatura.id}`, form);
 
       //mensaje
       toast.success("materia actualizada con éxito!");

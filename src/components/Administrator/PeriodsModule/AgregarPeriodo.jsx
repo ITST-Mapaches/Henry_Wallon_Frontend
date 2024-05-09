@@ -2,8 +2,7 @@ import { Modal, Label, TextInput, Tooltip, Button, Datepicker } from "flowbite-r
 import { PeriodosContext } from "../../../context/PeriodosContext";
 import { Toaster, toast } from "react-hot-toast";
 import { useState, useContext } from "react";
-import { useForm } from "../../../hooks";
-import axios from "axios";
+import { useForm, usePost } from "../../../hooks";
 
 const AgregarPeriodo = () => {
     // estado para modal
@@ -26,7 +25,7 @@ const AgregarPeriodo = () => {
             console.log(form)
 
             // envia el formulario al endpoint
-            await axios.post(import.meta.env.VITE_BASE_URL + 'periodos', form);
+            await usePost('periodos', form)
 
 
             //mensaje

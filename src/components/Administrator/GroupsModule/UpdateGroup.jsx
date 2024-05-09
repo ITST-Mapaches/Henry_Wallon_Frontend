@@ -2,8 +2,7 @@ import { useState, useContext } from "react";
 import { Modal, Label, TextInput, Tooltip, Button } from "flowbite-react";
 import { GruposContext } from '../../../context/GruposContextProvider'
 import { toast } from "react-hot-toast";
-import { useForm } from "../../../hooks";
-import axios from "axios";
+import { useForm, usePut } from "../../../hooks";
 
 const UpdateGroup = ({id, prefij}) => {
     
@@ -28,7 +27,7 @@ const UpdateGroup = ({id, prefij}) => {
 
         try{
             // envia el formulario al endpoint
-            await axios.put(import.meta.env.VITE_BASE_URL + `grupos/${id}`, form);
+            await usePut(`grupos/${id}`, form);
 
             //mensaje
             toast.success("Grupo agregado con éxito!");

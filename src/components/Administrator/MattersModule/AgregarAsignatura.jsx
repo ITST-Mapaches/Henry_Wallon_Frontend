@@ -1,10 +1,9 @@
 import { Modal, Label, TextInput, Textarea, Select, Tooltip, Button } from "flowbite-react";
 import { AsignaturasContext } from "../../../context/AsignaturasContextProvider";
 import AsignacionDocentes from "./AsignacionDocentes";
-import { useForm, useFetch } from "../../../hooks";
+import { useForm, useFetch, usePost } from "../../../hooks";
 import { Toaster, toast } from "react-hot-toast";
 import { useContext, useState } from "react";
-import axios from "axios";
 
 
 const AgregarAsignatura = () => {
@@ -36,7 +35,7 @@ const AgregarAsignatura = () => {
 
         try {
         // envia el formulario al endpoint
-        const response = await axios.post(import.meta.env.VITE_BASE_URL + 'asignaturas', form);
+        const response = await usePost('asignaturas', form);
 
         const {data} = response.data;
         

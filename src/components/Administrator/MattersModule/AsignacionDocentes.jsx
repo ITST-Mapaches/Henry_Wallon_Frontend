@@ -1,7 +1,6 @@
-import { useFetch, useForm } from "../../../hooks";
+import { useFetch, useForm, usePost } from "../../../hooks";
 import { Modal, Label, Select, Tooltip, Button} from "flowbite-react";
 import { Loader } from "../../commons";
-import axios from "axios";
 import { Toaster, toast } from "react-hot-toast";
 
 const AsignacionDocentes = ({id, nombre, openDocentes, setOpenDocentes}) => {
@@ -28,7 +27,7 @@ const AsignacionDocentes = ({id, nombre, openDocentes, setOpenDocentes}) => {
         const formulario = {...form, id_materia: id};
 
         // envia el formulario al endpoint
-        await axios.post(import.meta.env.VITE_BASE_URL + "asignaturadocentegrupo", formulario);
+        await usePost("asignaturadocentegrupo", formulario);
 
         //mensaje
         toast.success("Información registrada con éxito!");

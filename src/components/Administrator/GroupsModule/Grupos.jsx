@@ -1,6 +1,6 @@
 import AgregarGrupo from "./AgregarGrupo"
 import { GruposContext } from "../../../context/GruposContextProvider";
-import { Loader } from "../../commons";
+import { Loader, Vacio } from "../../commons";
 import { TableRowGroup } from "../";
 import { useContext } from "react";
 

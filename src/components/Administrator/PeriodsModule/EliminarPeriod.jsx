@@ -3,7 +3,7 @@ import { HiOutlineExclamationCircle } from "react-icons/hi";
 import { Toaster, toast } from "react-hot-toast";
 import { PeriodosContext } from "../../../context/PeriodosContext";
 import { useState, useContext } from "react";
-import axios from "axios";
+import { useDelete } from "../../../hooks";
 
 const EliminarPeriod = ({ id, numero }) => {
     // estado para mostrar modal
@@ -13,7 +13,7 @@ const EliminarPeriod = ({ id, numero }) => {
 
     const eliminar = async (id) => {
         try {
-            await axios.delete(import.meta.env.VITE_BASE_URL + "periodos/" + id);
+            await useDelete("periodos/" + id);
 
             reFetchPeriodos();
 

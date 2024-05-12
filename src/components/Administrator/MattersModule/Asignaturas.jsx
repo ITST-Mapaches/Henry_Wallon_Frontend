@@ -16,7 +16,7 @@ const Asignaturas = () => {
         {isLoadingAsignaturas 
           ? ( <Loader />) 
           : asignaturas.length > 0 ? (
-              <table className="m-auto text-center text-white animate-jump-in">
+              <table className="m-auto text-center text-white">
               <thead className="after:content-[''] after:block after:h-4">
                 <tr className="bg-primary">
                   <th className="p-4 rounded-s-2xl">Clave</th>

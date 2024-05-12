@@ -1,3 +1,7 @@
+.vacio_container{
+  min-height: 150px;
+}
+
 .loader {
   position: relative;
   width: 108px;

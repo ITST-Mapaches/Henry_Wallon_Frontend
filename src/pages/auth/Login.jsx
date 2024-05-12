@@ -50,9 +50,8 @@ const Login = () => {
       }
 
     } catch (error) {
-      console.log(error);
       //mensaje
-      toast.error("Usuario y/o contraseña incorrecto!");
+      toast.error(error.response.data.message);
     }
   };
 

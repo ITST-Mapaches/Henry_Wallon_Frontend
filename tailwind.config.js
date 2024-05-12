@@ -7,7 +7,8 @@ export default {
     extend: {
       colors: {
         primary: "#23182F",
-        secondary: "#F1E62A",
+        secondary: "#FAFA00",
+        third: "#F80E0F",
         current: "currentColor",
       },
       animation: {

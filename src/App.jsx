@@ -6,6 +6,7 @@ import { TitleContextProvider } from "./context/TitleContextProvider";
 import ProtectedRoute from "./components/commons/ProtectedRoute";
 import { useContext } from "react";
 import { AuthContext } from "./context/AuthContextProvider";
+import Docente from "./pages/Docente/Docente";
 
 function App() {
   const ProveedorTitle = ({ children }) => {
@@ -18,22 +19,30 @@ function App() {
     <>
       <Routes>
         <Route path="/login" element={<Login />} />
-        
-          {/* administrador */}
-          <Route
-            path="/administrador/*"
-            element={
-              < ProtectedRoute isAllowed={!!user && user.rol === 'Administrador' } >
-                <ProveedorTitle>
-                  <Administrator />
-                </ProveedorTitle>
-              </ ProtectedRoute  >
-            }
+
+        {/* administrador */}
+        <Route
+          path="/administrador/*"
+          element={
+            <ProtectedRoute isAllowed={!!user && user.rol === "Administrador"}>
+              <ProveedorTitle>
+                <Administrator />
+              </ProveedorTitle>
+            </ProtectedRoute>
+          }
           />
-          {/* docentes */}
-          {/* <Route path="/Docente/*" element={<Docente>>} /> */}
-          {/* usuarios */}
-          {/* <Route path="/usuarios/*" element={<Usuarios />} /> */}
+        {/* docentes */}
+        <Route path="/Docente/*" 
+          element={
+            <ProtectedRoute isAllowed={!!user && user.rol === "Docente"}>
+              <ProveedorTitle>
+                <Docente user={user} />
+              </ProveedorTitle>
+            </ProtectedRoute>
+        } 
+        />
+        {/* usuarios */}
+        {/* <Route path="/usuarios/*" element={<Usuarios />} /> */}
       </Routes>
     </>
   );

@@ -32,7 +32,7 @@ function App() {
           }
           />
         {/* docentes */}
-        <Route path="/Docente/*" 
+        <Route path="/docente/*" 
           element={
             <ProtectedRoute isAllowed={!!user && user.rol === "Docente"}>
               <ProveedorTitle>

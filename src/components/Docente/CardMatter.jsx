@@ -7,12 +7,15 @@ import { TableRowStudent } from './';
 
 
 const FetchUsers = ({id_asignatura, num_period, pref_grupo}) => { 
+    // obtiene el dato si esta activo o no el periodo
+    const  {data, isLoading: isLoadingPeriodo} =  useFetch('periodocalificaciones');
+
     // peticion al endpoint que retorna los alumnos de acuerdo a la materia, grupo y periodo
     const {data: users, isLoading } = useFetch(`getMomentosBySubjectGroupPeriod/${id_asignatura}/${num_period}/${pref_grupo}`);
 
     return(
         <>
-            {isLoading 
+            {isLoading || isLoadingPeriodo
                 ? < Loader /> 
                 : (users.length > 0 
                     ? (
@@ -29,7 +32,7 @@ const FetchUsers = ({id_asignatura, num_period, pref_grupo}) => {
                             </thead>
                             <tbody className="font-normal">
                                 {users.map((user) => (
-                                <TableRowStudent key={user.num_control} id_asignatura={id_asignatura} {...user} />
+                                <TableRowStudent key={user.num_control} periodo_activo={ !(data === 1)} id_asignatura={id_asignatura} {...user} />
                                 ))}
                             </tbody>
                         </table>

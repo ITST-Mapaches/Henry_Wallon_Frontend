@@ -4,7 +4,7 @@ import { useForm, usePut } from "../../hooks";
 import { AddObservation } from "./";
 import toast from "react-hot-toast";
 
-const TableRowStudent = ({id_asignatura, num_control, nombre, cal_primer_momento: primer_momento,   cal_segundo_momento: segundo_momento,   cal_tercer_momento: tercer_momento}) => {
+const TableRowStudent = ({periodo_activo, id_asignatura, num_control, nombre, cal_primer_momento: primer_momento,   cal_segundo_momento: segundo_momento,   cal_tercer_momento: tercer_momento}) => {
 
     // estado para bloquear o desbloquear edición de campos
     const [bloquearEdit, setBloquearEdit] = useState(true);
@@ -64,7 +64,7 @@ const TableRowStudent = ({id_asignatura, num_control, nombre, cal_primer_momento
                         </Tooltip>
                         {/* button edit */}
                         <Tooltip content={bloquearEdit ? 'Habilitar edición' : 'Deshabilitar edición'} placement="bottom" style="light">
-                            <button className="hover:scale-110 active:scale-95" onClick={() => { setBloquearEdit(!bloquearEdit) }}>
+                            <button className="hover:scale-110 active:scale-95 cursor-pointer" disabled={periodo_activo} onClick={() => { setBloquearEdit(!bloquearEdit) }}>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6 text-sky-500">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
                                 </svg>

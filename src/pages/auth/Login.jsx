@@ -56,7 +56,7 @@ const Login = () => {
   };
 
   if (loggedIn) {
-    return <Navigate to={`/${user.rol}`} />;
+    return <Navigate to={`/${user.rol.toLowerCase()}`} />;
   }
 
   return (

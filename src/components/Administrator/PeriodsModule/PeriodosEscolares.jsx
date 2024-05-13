@@ -10,6 +10,7 @@ const PeriodosEscolares = () => {
   return (
     <div className="p-4 sm:ml-64">
     <div className="p-4 rounded-lg mt-14">
+        <h2 className='mb-6'>En esta sección puedes administrar los periodos escolares.</h2>
         < AgregarPeriodo />
 
         {

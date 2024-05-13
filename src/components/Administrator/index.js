@@ -1,5 +1,8 @@
 import Sidebar from "./Sidebar";
 
+// home
+import Home from "./Home";
+
 // modulo usuarios
 import Users from "./UsersModule/Users";
 import TableRowUser from "./UsersModule/TableRowUser";
@@ -32,8 +35,12 @@ import ModalViewPeriod from "./PeriodsModule/ModalViewPeriod";
 import TableRowPeriod from "./PeriodsModule/TableRowPeriod";
 import UpdatePeriod from "./PeriodsModule/UpdatePeriod";
 
+// periodo evaluaciones
+import PeriodoEvaluaciones from "./PeriodoEvaluaciones";
+
 export {
   Sidebar,
+  Home,
   Users,
   TableRowUser,
   AgregarUser,
@@ -58,4 +65,5 @@ export {
   ModalViewPeriod,
   TableRowPeriod,
   UpdatePeriod,
+  PeriodoEvaluaciones
 };

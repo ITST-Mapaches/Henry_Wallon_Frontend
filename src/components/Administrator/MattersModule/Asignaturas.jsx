@@ -11,7 +11,7 @@ const Asignaturas = () => {
   return (
     <div className="p-4 sm:ml-64">
     <div className="p-4 rounded-lg mt-14">
-
+    <h2 className='mb-6'>En esta sección puedes administrar las asignaturas y los docentes que las imparten.</h2>
       < AgregarAsignatura />
         {isLoadingAsignaturas 
           ? ( <Loader />) 

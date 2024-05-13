@@ -14,6 +14,9 @@ export default {
       animation: {
         "pulse-fast": "pulse 1s linear infinite",
       },
+      gridTemplateColumns: {
+        'flex-grid' : 'repeat(auto-fill, minmax(250px, 1fr))'
+      },
     },
   },
   plugins: [flowbite.plugin()],

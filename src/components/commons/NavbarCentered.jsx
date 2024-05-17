@@ -9,9 +9,9 @@ const NavbarCentered = () => {
     const {setUser} = useContext(AuthContext);
     return (
         <nav className="fixed top-0 z-50 w-screen bg-primary">
-            <div className="px-3 py-3 lg:px-5 lg:pl-3">
+            <div className="p-3 lg:px-5 lg:pl-3">
                 <div className="flex items-center justify-between">
-                    <div className="flex items-center justify-start rtl:justify-end basis-1/3">
+                    <div className="flex items-center justify-start rtl:justify-end flex-1">
                         <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar" type="button" className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200">
                             <span className="sr-only">Open sidebar</span>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
@@ -23,8 +23,8 @@ const NavbarCentered = () => {
                         <span className="self-center text-white text-xl font-semibold sm:text-2xl whitespace-nowrap">Henry Wallon</span>
                         </a>
                     </div>
-                    <span className="text-white text-xl font-semibold sm:text-2xl whitespace-nowrap basis-1/3">{title}</span>
-                    <Popover className='basis-1/3' content={
+                    <span className="text-white text-xl font-semibold sm:text-2xl whitespace-nowrap flex-1">{title}</span>
+                    <Popover className='flex-1' content={
                     <button className="px-3 py-2 flex gap-2 bg-white hover:bg-slate-100 font-semibold" onClick={() => { setUser(null) }}>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor" className="w-6 h-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15m-3 0-3-3m0 0 3-3m-3 3H15" />

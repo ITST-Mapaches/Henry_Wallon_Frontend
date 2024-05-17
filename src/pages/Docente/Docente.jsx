@@ -1,9 +1,10 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { Loader, NavbarCentered, Vacio } from '../../components/commons'
 import { TitleContext } from '../../context/TitleContextProvider';
 import { useFetch } from "../../hooks";
 import {CardMatter} from '../../components/Docente/';
 import { Toaster } from 'react-hot-toast';
+import { useLocation } from 'react-router-dom';
 
 const Docente = ({user}) => {
     const {data: asignaturas, isLoading} = useFetch(`getMattersByDocent/${user.id}`);
@@ -11,7 +12,12 @@ const Docente = ({user}) => {
     // accediento al modificador de titulo del contexto para cambiarlo según sea el caso
     const {setTitle} = useContext(TitleContext);
 
-    setTitle('Docente');
+    // objeto que representa la url actual en el navegador
+    const location = useLocation();
+    
+    useEffect(
+        () => { setTitle("Bienvenido") }
+        ,[location.pathname, setTitle]);
 
     return (
         <>

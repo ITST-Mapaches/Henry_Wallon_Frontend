@@ -1,18 +1,14 @@
 import { Routes, Route } from "react-router-dom";
 import Login from "./pages/auth/Login";
 import "./App.css";
-import Administrator from "./pages/Administrator/Administrator";
 import { TitleContextProvider } from "./context/TitleContextProvider";
 import ProtectedRoute from "./components/commons/ProtectedRoute";
 import { useContext } from "react";
 import { AuthContext } from "./context/AuthContextProvider";
-import Docente from "./pages/Docente/Docente";
+import { Administrator, Docente, Alumnos, Tutor } from "./pages/";
+
 
 function App() {
-  const ProveedorTitle = ({ children }) => {
-    return <TitleContextProvider>{children}</TitleContextProvider>;
-  };
-
   const { user } = useContext(AuthContext);
 
   return (
@@ -25,24 +21,45 @@ function App() {
           path="/administrador/*"
           element={
             <ProtectedRoute isAllowed={!!user && user.rol === "Administrador"}>
-              <ProveedorTitle>
+              <TitleContextProvider>
                 <Administrator />
-              </ProveedorTitle>
+              </TitleContextProvider>
             </ProtectedRoute>
           }
-          />
+        />
         {/* docentes */}
-        <Route path="/docente/*" 
+        <Route
+          path="/docente"
           element={
             <ProtectedRoute isAllowed={!!user && user.rol === "Docente"}>
-              <ProveedorTitle>
+              <TitleContextProvider>
                 <Docente user={user} />
-              </ProveedorTitle>
+              </TitleContextProvider>
             </ProtectedRoute>
-        } 
+          }
         />
-        {/* usuarios */}
-        {/* <Route path="/usuarios/*" element={<Usuarios />} /> */}
+        {/* alumnos */}
+        <Route
+          path="/alumno"
+          element={
+            <ProtectedRoute isAllowed={ !!user &&  user.rol === "Alumno" }>
+              <TitleContextProvider>
+                <Alumnos user={user} />
+              </TitleContextProvider>
+            </ProtectedRoute>
+          }
+        />
+        {/* tutores */}
+        <Route
+          path="/tutor"
+          element={
+            <ProtectedRoute isAllowed={ !!user &&  user.rol === "Tutor" }>
+              <TitleContextProvider>
+                <Tutor user={user} />
+              </TitleContextProvider>
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </>
   );

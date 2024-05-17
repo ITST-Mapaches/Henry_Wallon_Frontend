@@ -43,8 +43,6 @@ const Login = () => {
         // definimos un usuario en el contexto
         setUser({id: data['id'], rol: data['rol'], token: data['token'] });
 
-        console.log({id: data['id'], rol: data['rol'], token: data['token'] })
-
         // Aquí establecemos loggedIn a true para redirigir
         setLoggedIn(true);
       }
@@ -56,7 +54,7 @@ const Login = () => {
   };
 
   if (loggedIn) {
-    return <Navigate to={`/${user.rol.toLowerCase()}`} />;
+    return <Navigate to={`/${ user.rol.toLowerCase() }`} />;
   }
 
   return (

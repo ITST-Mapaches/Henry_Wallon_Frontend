@@ -39,7 +39,6 @@ const UpdateAsignacionDocentes = ({asignaturaDatetails, setOpenModal}) => {
         // limpia el formulario
         onResetForm();
         } catch (error) {
-        console.log(error);
         toast.error("Error al intentar actualizar la información!");
         }
     };

@@ -72,7 +72,6 @@ const UpdateUser = ({ user, inputRole, rol, setOpenModal }) => {
     const mes = String(fecha.getMonth() + 1).padStart(2, "0");
     const dia = String(fecha.getDate()).padStart(2, "0");
     const fechaFormateada = `${año}-${mes}-${dia}`;
-    // console.log(fechaFormateada); // "2023-11-13"
     onInputChange({ target: { name: "nacimiento", value: fechaFormateada } });
   };
 

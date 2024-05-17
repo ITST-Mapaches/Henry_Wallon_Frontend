@@ -22,8 +22,6 @@ const AgregarPeriodo = () => {
         setOpenModal(false);
 
         try{
-            console.log(form)
-
             // envia el formulario al endpoint
             await usePost('periodos', form)
 
@@ -37,7 +35,6 @@ const AgregarPeriodo = () => {
             // periodos
             reFetchPeriodos();
         }catch (error) {
-            console.log(error)
             toast.error("Error al intentar agregar periodo!");
         }
 
@@ -45,28 +42,22 @@ const AgregarPeriodo = () => {
 
       // manejo de fecha
     const handleDateChangeInicio = (date) => {
-        console.log(date)
-        // console.log(date)
         const fecha = new Date(date);
         const año = fecha.getFullYear();
         // Sumamos 1 al mes ya que en JavaScript los meses van de 0 a 11
         const mes = String(fecha.getMonth() + 1).padStart(2, "0");
         const dia = String(fecha.getDate()).padStart(2, "0");
         const fechaFormateada = `${año}-${mes}-${dia}`;
-        // console.log(fechaFormateada); // "2023-11-13"
 
         onInputChange({ target: { name: "fecha_inicio", value: fechaFormateada } });
     };
     const handleDateChangeFin = (date) => {
-        console.log(date)
-        // console.log(date)
         const fecha = new Date(date);
         const año = fecha.getFullYear();
         // Sumamos 1 al mes ya que en JavaScript los meses van de 0 a 11
         const mes = String(fecha.getMonth() + 1).padStart(2, "0");
         const dia = String(fecha.getDate()).padStart(2, "0");
         const fechaFormateada = `${año}-${mes}-${dia}`;
-        // console.log(fechaFormateada); // "2023-11-13"
 
         onInputChange({ target: { name: "fecha_fin", value: fechaFormateada } });
     };

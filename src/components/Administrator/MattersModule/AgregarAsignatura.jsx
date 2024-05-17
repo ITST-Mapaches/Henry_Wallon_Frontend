@@ -54,7 +54,6 @@ const AgregarAsignatura = () => {
         cargarAsignaturas();
 
         } catch (error) {
-            console.log(error)
             toast.error("Error al intentar agregar materia!");
         }
     };

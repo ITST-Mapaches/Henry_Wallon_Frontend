@@ -18,7 +18,6 @@ const ModalEliminar = ({ id, name }) => {
       toast.success("Usuario eliminado!");
       loadUsers();
     } catch (error) {
-      console.log(error);
       toast.error("Error al intentar eliminar usuario!");
     }
   };

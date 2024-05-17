@@ -24,7 +24,6 @@ const TableRowStudent = ({periodo_activo, id_asignatura, num_control, nombre, ca
                 // bloqueo de nuevo de inputs
                 setBloquearEdit(true);
             } catch (error) {
-                // console.log(error);
                 toast.error("Error al intentar actualizar calificaciones!");
             }
     };

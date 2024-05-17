@@ -42,29 +42,22 @@ const UpdatePeriod = ({id, numero: num, nombre_tipo: nt, fecha_inicio: fi, fecha
       // manejo de fecha
      // manejo de fecha
      const handleDateChangeInicio = (date) => {
-        console.log(date)
-        // console.log(date)
         const fecha = new Date(date);
         const año = fecha.getFullYear();
         // Sumamos 1 al mes ya que en JavaScript los meses van de 0 a 11
         const mes = String(fecha.getMonth() + 1).padStart(2, "0");
         const dia = String(fecha.getDate()).padStart(2, "0");
         const fechaFormateada = `${año}-${mes}-${dia}`;
-        // console.log(fechaFormateada); // "2023-11-13"
 
         onInputChange({ target: { name: "fecha_inicio", value: fechaFormateada } });
     };
     const handleDateChangeFin = (date) => {
-        console.log(date)
-        // console.log(date)
         const fecha = new Date(date);
         const año = fecha.getFullYear();
         // Sumamos 1 al mes ya que en JavaScript los meses van de 0 a 11
         const mes = String(fecha.getMonth() + 1).padStart(2, "0");
         const dia = String(fecha.getDate()).padStart(2, "0");
         const fechaFormateada = `${año}-${mes}-${dia}`;
-        // console.log(fechaFormateada); // "2023-11-13"
-
         onInputChange({ target: { name: "fecha_fin", value: fechaFormateada } });
     };
 

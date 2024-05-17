@@ -37,7 +37,6 @@ const FormObservartion = ({existe, num_control, id_asignatura, id, descripcion: 
             // vuelve a realizar el fetching del seguimiento
             refetchSeguimiento();
         } catch (error) {
-            // console.log(error);
             toast.error("Error al intentar actualizar seguimiento!");            
         }
     };
@@ -55,7 +54,6 @@ const FormObservartion = ({existe, num_control, id_asignatura, id, descripcion: 
 
             refetchSeguimiento();
         }catch(error){
-            // console.log(error)
             //mensaje de error
             toast.success("Surgió un problema al intentar eliminar el seguimiento!");
         }

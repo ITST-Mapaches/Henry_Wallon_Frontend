@@ -34,7 +34,6 @@ const AsignacionDocentes = ({ id, nombre, openDocentes, setOpenDocentes }) => {
       // limpia el formulario
       onResetForm();
     } catch (error) {
-      console.log(error);
       toast.error("Error al intentar registrada la información!");
     }
   };

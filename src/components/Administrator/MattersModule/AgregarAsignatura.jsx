@@ -4,7 +4,7 @@ import AsignacionDocentes from "./AsignacionDocentes";
 import { useForm, useFetch, usePost } from "../../../hooks";
 import { Toaster, toast } from "react-hot-toast";
 import { useContext, useState } from "react";
-import CustomButton from "../../commons/buttons/CustomButton";
+import { CustomButton, OpenModalButton } from '../../../components/commons';
 
 
 const AgregarAsignatura = () => {
@@ -63,13 +63,11 @@ const AgregarAsignatura = () => {
     return (
         <>
             {/* button add  */}
-            <button className='flex items-center w-fit m-auto p-2 bg-primary text-white rounded-lg group active:scale-95 hover:scale-105 active:rounded-r-lg mb-12' 
-                onClick={() => { setOpenModal(true) }}>
+            < OpenModalButton callback={() => { setOpenModal(true) }} icon={
                 <svg className="w-6 h-6  transition duration-75" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                 </svg>
-                <span className="ms-3 font-bold">Agregar asignatura</span>
-            </button>
+            } message="Agregar asignatura"/>
         
 
             {

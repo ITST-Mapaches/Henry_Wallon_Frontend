@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
 import { UsersContext } from "../../../context/UsersContextProvider";
 import { useForm, useFetch, usePost } from "../../../hooks";
-import CustomButton from "../../commons/buttons/CustomButton";
+import { CustomButton, OpenModalButton } from '../../../components/commons';
 
 const AgregarUser = () => {
   // obtencion de metodo cargar usuarios
@@ -114,13 +114,10 @@ const AgregarUser = () => {
   return (
       <>
         {/* button add  */}
-        <button className='flex items-center w-fit m-auto p-2 bg-primary text-white rounded-lg group active:scale-95 hover:scale-105 active:rounded-r-lg mb-12'
-            onClick={() => { setOpenModal(true) }}>
+        < OpenModalButton callback={() => { setOpenModal(true) }} icon={
             <svg className="w-6 h-6  transition duration-75" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z" />
-            </svg>
-            <span className="ms-3 font-bold">Agregar usuario</span>
-        </button>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z" />
+          </svg>} message="Agregar usuario"/>
 
         {/* modal */}
         <Modal show={openModal} size="4xl" className="bg-black" popup>

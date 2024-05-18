@@ -1,8 +1,9 @@
 import { useState, useContext } from "react";
-import { Modal, Label, TextInput, Tooltip, Button } from "flowbite-react";
+import { Modal, Label, TextInput } from "flowbite-react";
 import { GruposContext } from '../../../context/GruposContextProvider'
 import { Toaster, toast } from "react-hot-toast";
 import { useForm, usePost } from "../../../hooks";
+import CustomButton from "../../commons/buttons/CustomButton";
 
 const AgregarGrupo = () => {
 
@@ -69,12 +70,8 @@ const AgregarGrupo = () => {
                         </div>
                         {/* buttons */}
                         <div className="w-full mx-auto mt-12 flex justify-around">
-                            <Tooltip content="Cancelar y cerrar" placement="bottom" style="dark">
-                                <Button color="" className="hover:scale-105 active:scale-95 px-2  text-white inline-block bg-red-600 hover:bg-red-800 font-bold" onClick={() => { setOpenModal(false) }}>Cancelar</Button>
-                            </Tooltip>
-                            <Tooltip content="Agregar grupo y cerrar" placement="bottom" style="dark">
-                                <Button type="submit" className="hover:scale-105 active:scale-95 px-2 inline-block bg-sky-600 font-bold">Agregar</Button>
-                            </Tooltip>
+                            < CustomButton className="bg-red-600 hover:bg-red-800" tooltip="Cancelar y cerrar" placement="left" mesagge="Cancelar" accessKey='x' callback={() => { setOpenModal(false) }} />
+                            < CustomButton type="submit" className="bg-sky-600 hover:bg-sky-800" placement="right" tooltip="Agregar grupo" mesagge="Agregar" accessKey='s'/>
                         </div>
                     </form>
                     </div>

@@ -1,9 +1,10 @@
-import { Button, Modal, Kbd } from "flowbite-react";
+import { Modal } from "flowbite-react";
 import { useState } from "react";
 import Loader from "../commons/Loader/Loader";
 import { useFetch } from "../../hooks";
 import { Vacio } from "../commons";
 import { TableRowStudent } from './';
+import CustomButton from "../commons/buttons/CustomButton";
 
 
 const FetchUsers = ({id_asignatura, num_period, pref_grupo}) => { 
@@ -72,10 +73,8 @@ const CardMatter = ({id, clave, asignatura, periodo, grupo }) => {
                     <FetchUsers id_asignatura={id} num_period={periodo} pref_grupo={grupo} />
 
                     {/* buttons */}
-                    <div className="w-6/12 mx-auto mt-4 flex">
-                        <Button color={""}  className="hover:scale-105 active:scale-95 text-white p-0  bg-red-600 hover:bg-red-800 mx-auto font-bold" onClick={() => {setOpenModal(false)}} accessKey="x">
-                            <span className="mr-3 flex items-center justify-center">Cerrar</span> <Kbd className="px-1 py-1">Alt + X</Kbd>
-                        </Button>
+                    <div className="w-6/12 mx-auto mt-4 flex justify-center">
+                        <CustomButton className="bg-red-600 hover:bg-red-800" tooltip="Cancelar y cerrar" placement="left" mesagge="Cancelar" accessKey='x' callback={() => { setOpenModal(false) }} />
                     </div>
                 </div>
                 </Modal.Body>

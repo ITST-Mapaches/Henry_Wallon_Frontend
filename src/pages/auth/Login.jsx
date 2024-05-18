@@ -69,16 +69,16 @@ const Login = () => {
             <h2 className="login__title">Bienvenido</h2>
             <form className="login__form" onSubmit={onSubmit}>
               <div className="login__item">
-                <label htmlFor="" className="login__label">
+                <label htmlFor="nombre_usuario" className="login__label">
                   Nombre de usuario
                 </label>
-                <input name="nombre_usuario" onChange={onInputChange} type="text" className="login__input" placeholder="Ingresa tu nombre de usuario" required minLength={5} value={nombre_usuario}/>
+                <input id="nombre_usuario" name="nombre_usuario" onChange={onInputChange} type="text" className="login__input" placeholder="Ingresa tu nombre de usuario" required minLength={5} value={nombre_usuario} autoComplete="true"/>
               </div>
               <div className="login__item">
-                <label htmlFor="" className="login__label">
+                <label htmlFor="password" className="login__label">
                   Contraseña
                 </label>
-                <input name="password" onChange={onInputChange} type="password" className="login__input" placeholder="••••••••••" required  minLength={5} value={password}/>
+                <input id="password" name="password" onChange={onInputChange} type="password" className="login__input" placeholder="••••••••••" required  minLength={5} value={password} autoComplete="true"/>
               </div>
               <button className="login__button">Iniciar sesión</button>
             </form>

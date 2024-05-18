@@ -1,8 +1,9 @@
-import { Button, Label, Modal, TextInput, Datepicker, Select, ToggleSwitch, Tooltip} from "flowbite-react";
+import { Label, Modal, TextInput, Datepicker, Select, ToggleSwitch } from "flowbite-react";
 import { useContext, useEffect, useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
 import { UsersContext } from "../../../context/UsersContextProvider";
 import { useForm, useFetch, usePost } from "../../../hooks";
+import CustomButton from "../../commons/buttons/CustomButton";
 
 const AgregarUser = () => {
   // obtencion de metodo cargar usuarios
@@ -122,7 +123,7 @@ const AgregarUser = () => {
         </button>
 
         {/* modal */}
-        <Modal show={openModal} size="4xl" className="bg-primary" popup>
+        <Modal show={openModal} size="4xl" className="bg-black" popup>
           <Modal.Header />
           <Modal.Body>
             <div className="space-y-6">
@@ -136,7 +137,7 @@ const AgregarUser = () => {
                         <div className="mb-2 block">
                           <Label htmlFor="nombre" value="Nombre (s)" />
                         </div>
-                        <TextInput name="nombre" id="nombre" value={nombre} onChange={onInputChange} placeholder="Ingresa el nombre" maxLength={40} required addon={
+                        <TextInput name="nombre" id="nombre" value={nombre} onChange={onInputChange} placeholder="Ingresa el nombre" maxLength={40} required autoFocus addon={
                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                         </svg>}/>
@@ -309,15 +310,9 @@ const AgregarUser = () => {
                 </div>
                 {/* buttons */}
                 <div className="w-6/12 mx-auto mt-12 flex justify-around">
-                  <Tooltip content="Cancelar y cerrar" placement="bottom" style="dark">
-                      <Button color="" className="hover:scale-105 active:scale-95 px-2  text-white inline-block bg-red-600 hover:bg-red-800 font-bold" onClick={() => { setOpenModal(false) }}>Cancelar</Button>
-                  </Tooltip>
-                  <Tooltip content="Limpiar todo el formulario" placement="bottom" style="dark">
-                    <Button color="" type="submit" className="hover:scale-105 active:scale-95 px-2 text-white  inline-block bg-yellow-300 hover:bg-yellow-400 font-bold" onClick={() => { onResetForm() }} >Limpiar</Button>
-                  </Tooltip>
-                  <Tooltip content="Agregar usuario y cerrar" placement="bottom" style="dark">
-                    <Button type="submit" className="hover:scale-105 active:scale-95 px-2 inline-block bg-sky-600 font-bold">Agregar</Button>
-                  </Tooltip>
+                  < CustomButton className="bg-red-600 hover:bg-red-800" tooltip="Cancelar y cerrar" placement="left" mesagge="Cancelar" accessKey='x' callback={() => { setOpenModal(false) }} />
+                  < CustomButton className="bg-yellow-300 hover:bg-yellow-800" tooltip="Limpiar todo el formulario" mesagge="Limpiar" accessKey='l' callback={() => { onResetForm() }} />
+                  < CustomButton type="submit" className="bg-sky-600 hover:bg-sky-800" placement="right" tooltip="Agregar usuario" mesagge="Agregar" accessKey='s'/>
                 </div>
               </form>
             </div>

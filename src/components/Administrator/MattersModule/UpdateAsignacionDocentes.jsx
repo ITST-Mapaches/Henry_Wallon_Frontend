@@ -1,8 +1,9 @@
 import { useFetch, useForm, usePut } from "../../../hooks";
-import { Label, Select, Button} from "flowbite-react";
+import { Label, Select } from "flowbite-react";
 import { Loader } from "../../commons";
 import { toast } from "react-hot-toast";
 import { useState } from "react";
+import CustomButton from "../../commons/buttons/CustomButton";
 
 const UpdateAsignacionDocentes = ({asignaturaDatetails, setOpenModal}) => {
     // estado para bloquear o desbloquear edición de campos
@@ -85,9 +86,9 @@ const UpdateAsignacionDocentes = ({asignaturaDatetails, setOpenModal}) => {
                     </button>
 
                     {(!bloquearEdit && (
-                    <Button type="submit" className="active:scale-95 mt-4 px-2 bg-sky-600 mx-auto font-bold">
-                        Actualizar
-                    </Button>
+                        <div className="flex justify-center">
+                            <CustomButton type="submit" className="bg-sky-600 hover:bg-sky-800 mt-4" tooltip="Actualizar asignaciones" placement="right" mesagge="Actualizar" accessKey='s'/>
+                        </div>
                     )) ||
                     ""}
                 </>

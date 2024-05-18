@@ -1,7 +1,8 @@
 import { useFetch, useForm, usePost } from "../../../hooks";
-import { Modal, Label, Select, Tooltip, Button } from "flowbite-react";
+import { Modal, Label, Select } from "flowbite-react";
 import { Loader } from "../../commons";
 import { Toaster, toast } from "react-hot-toast";
+import CustomButton from "../../commons/buttons/CustomButton";
 
 const AsignacionDocentes = ({ id, nombre, openDocentes, setOpenDocentes }) => {
   // fetching a endpoint de docentes
@@ -91,11 +92,7 @@ const AsignacionDocentes = ({ id, nombre, openDocentes, setOpenDocentes }) => {
 
                   {/*buttons */}
                   <div className="w-full mx-auto mt-4 flex justify-around">
-                    <Tooltip content="Confirmar asignaciones y cerrar" placement="bottom" style="dark">
-                      <Button type="submit" className="hover:scale-105 active:scale-95 px-2 inline-block bg-sky-600 font-bold">
-                        Confirmar
-                      </Button>
-                    </Tooltip>
+                      < CustomButton type="submit" className="bg-sky-600 hover:bg-sky-800 mt-4" tooltip="Confirmar asignación" mesagge="Confirmar" accessKey='s'/>
                   </div>
                 </>
               )}

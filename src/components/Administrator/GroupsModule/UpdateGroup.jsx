@@ -1,8 +1,9 @@
 import { useState, useContext } from "react";
-import { Modal, Label, TextInput, Tooltip, Button } from "flowbite-react";
+import { Modal, Label, TextInput, Tooltip } from "flowbite-react";
 import { GruposContext } from '../../../context/GruposContextProvider'
 import { toast } from "react-hot-toast";
 import { useForm, usePut } from "../../../hooks";
+import CustomButton from "../../commons/buttons/CustomButton";
 
 const UpdateGroup = ({id, prefij}) => {
     
@@ -76,10 +77,13 @@ const UpdateGroup = ({id, prefij}) => {
                             </svg>}/>
                         </div>
                         {/* buttons */}
-                        <div className="w-full mx-auto mt-12 flex justify-around">
-                            <Tooltip content="Cancelar y cerrar" placement="bottom" style="dark">
-                                <Button color="" className="hover:scale-105 active:scale-95 px-2  text-white inline-block bg-red-600 hover:bg-red-800 font-bold" onClick={() => { setOpenModal(false); setBloquearEdit(true); }}>Cancelar</Button>
-                            </Tooltip>
+                        <div className="w-full mx-auto mt-10 mb-6 flex justify-around">
+                            < CustomButton className="bg-red-600 hover:bg-red-800" tooltip="Cancelar y cerrar" placement="left" mesagge="Cancelar" accessKey='x' callback={() => { setOpenModal(false) }} />
+
+                            {(!bloquearEdit && (
+                                <CustomButton type="submit" className="bg-sky-600 hover:bg-sky-800" tooltip="Actualizar grupo" placement="right" mesagge="Actualizar" accessKey='s'/>
+                            )) ||
+                            ""}
                         </div>
 
                         <button type="button" className="text-gray-400 hover:text-gray-100 mt-4 hover:scale-1 absolute bottom-4 right-4" onClick={() => {setBloquearEdit(!bloquearEdit)}} title="Habilitar edición">
@@ -87,13 +91,6 @@ const UpdateGroup = ({id, prefij}) => {
                                 <path strokeLinecap="round" strokeLinejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10"/>
                             </svg>
                         </button>
-
-                        {(!bloquearEdit && (
-                        <Button type="submit" className="active:scale-95 mt-4 px-2 bg-sky-600 mx-auto font-bold">
-                            Actualizar
-                        </Button>
-                        )) ||
-                        ""}
                     </form>
                     </div>
                 </Modal.Body>

@@ -1,9 +1,10 @@
-import { Modal, Label, TextInput, Textarea, Select, Tooltip, Button } from "flowbite-react";
+import { Modal, Label, TextInput, Textarea, Select } from "flowbite-react";
 import { AsignaturasContext } from "../../../context/AsignaturasContextProvider";
 import AsignacionDocentes from "./AsignacionDocentes";
 import { useForm, useFetch, usePost } from "../../../hooks";
 import { Toaster, toast } from "react-hot-toast";
 import { useContext, useState } from "react";
+import CustomButton from "../../commons/buttons/CustomButton";
 
 
 const AgregarAsignatura = () => {
@@ -142,15 +143,9 @@ const AgregarAsignatura = () => {
                             </div>
                             {/* buttons */}
                             <div className="w-full mx-auto mt-4 flex justify-around">
-                            <Tooltip content="Cancelar y cerrar" placement="bottom" style="dark">
-                                <Button color="" className="hover:scale-105 active:scale-95 px-2  text-white inline-block bg-red-600 hover:bg-red-800 font-bold" onClick={() => { setOpenModal(false) }}>Cancelar</Button>
-                            </Tooltip>
-                            <Tooltip content="Limpiar todo el formulario" placement="bottom" style="dark">
-                                <Button color="" type="submit" className="hover:scale-105 active:scale-95 px-2 text-white  inline-block bg-yellow-300 hover:bg-yellow-400 font-bold" onClick={() => { onResetForm() }} >Limpiar</Button>
-                            </Tooltip>
-                            <Tooltip content="Agregar asignatura y cerrar" placement="bottom" style="dark">
-                                <Button type="submit" className="hover:scale-105 active:scale-95 px-2 inline-block bg-sky-600 font-bold">Confirmar</Button>
-                            </Tooltip>
+                                < CustomButton className="bg-red-600 hover:bg-red-800" tooltip="Cancelar y cerrar" placement="left" mesagge="Cancelar" accessKey='x' callback={() => { setOpenModal(false) }} />
+                                < CustomButton className="bg-yellow-300 hover:bg-yellow-800" tooltip="Limpiar todo el formulario" mesagge="Limpiar" accessKey='l' callback={() => { onResetForm() }} />
+                                < CustomButton type="submit" className="bg-sky-600 hover:bg-sky-800" tooltip="Agregar asignatura" placement="right" mesagge="Agregar" accessKey='s'/>
                             </div>
                         </form>
                         </div>

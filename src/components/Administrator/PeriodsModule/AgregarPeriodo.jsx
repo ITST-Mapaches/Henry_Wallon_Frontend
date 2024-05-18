@@ -1,8 +1,9 @@
-import { Modal, Label, TextInput, Tooltip, Button, Datepicker } from "flowbite-react";
+import { Modal, Label, TextInput, Datepicker } from "flowbite-react";
 import { PeriodosContext } from "../../../context/PeriodosContext";
 import { Toaster, toast } from "react-hot-toast";
 import { useState, useContext } from "react";
 import { useForm, usePost } from "../../../hooks";
+import CustomButton from "../../commons/buttons/CustomButton";
 
 const AgregarPeriodo = () => {
     // estado para modal
@@ -124,12 +125,8 @@ const AgregarPeriodo = () => {
                         </div>
                         {/* buttons */}
                         <div className="w-full mx-auto mt-12 flex justify-around">
-                            <Tooltip content="Cancelar y cerrar" placement="bottom" style="dark">
-                                <Button color="" className="hover:scale-105 active:scale-95 px-2  text-white inline-block bg-red-600 hover:bg-red-800 font-bold" onClick={() => { setOpenModal(false) }}>Cancelar</Button>
-                            </Tooltip>
-                            <Tooltip content="Agregar periodo y cerrar" placement="bottom" style="dark">
-                                <Button type="submit" className="hover:scale-105 active:scale-95 px-2 inline-block bg-sky-600 font-bold">Agregar</Button>
-                            </Tooltip>
+                            <CustomButton className="bg-red-600 hover:bg-red-800" tooltip="Cancelar y cerrar" placement="left" mesagge="Cancelar" accessKey='x' callback={() => { setOpenModal(false) }} />
+                            <CustomButton type="submit" className="bg-sky-600 hover:bg-sky-800" placement="right" tooltip="Agregar periodo" mesagge="Agregar" accessKey='s'/>
                         </div>
                     </form>
                     </div>

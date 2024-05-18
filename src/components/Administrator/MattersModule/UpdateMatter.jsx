@@ -5,6 +5,7 @@ import { useForm } from "../../../hooks/useForm";
 import { toast } from "react-hot-toast";
 import { AsignaturasContext } from "../../../context/AsignaturasContextProvider";
 import { usePut } from "../../../hooks";
+import CustomButton from "../../commons/buttons/CustomButton";
 
 const UpdateMatter = ({ asignatura, setOpenModal }) => {
   //uso de contexto de asignaturas
@@ -114,9 +115,9 @@ const UpdateMatter = ({ asignatura, setOpenModal }) => {
         </button>
 
         {(!bloquearEdit && (
-          <Button type="submit" className="active:scale-95 mt-4 px-2 bg-sky-600 mx-auto font-bold">
-            Actualizar
-          </Button>
+          <div className="flex justify-center">
+            < CustomButton type="submit" className="bg-sky-600 hover:bg-sky-800 mt-4" tooltip="Actualizar asignatura" placement="right" mesagge="Actualizar" accessKey='s'/>
+          </div>
         )) ||
           ""}
       </form>

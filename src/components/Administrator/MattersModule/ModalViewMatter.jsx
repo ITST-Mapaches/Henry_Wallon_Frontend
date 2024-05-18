@@ -1,9 +1,10 @@
-import { Modal, Button, Popover } from "flowbite-react";
+import { Modal, Popover } from "flowbite-react";
 import { useFetch } from "../../../hooks";
 import { useState } from "react";
 import { Loader } from "../../commons";
 import UpdateMatter from "./UpdateMatter";
 import UpdateAsignacionDocentes from "./UpdateAsignacionDocentes";
+import CustomButton from "../../commons/buttons/CustomButton";
 
 const FetchMatterInfo = ({ option, id, setOpenModal }) => {
 
@@ -67,10 +68,8 @@ const ModalViewMatter = ({id}) => {
             <FetchMatterInfo option={option} id={id} setOpenModal={setOpenModal}/>
 
             {/* buttons */}
-            <div className="w-6/12 mx-auto mt-4 flex">
-              <Button color={""} className="active:scale-95 text-white px-2  inline-block bg-red-600 hover:bg-red-800 mx-auto font-bold" onClick={() => { setOpenModal(false);}}>
-                Cancelar
-              </Button>
+            <div className="w-6/12 mx-auto mt-4 flex justify-center">
+              < CustomButton className="bg-red-600 hover:bg-red-800" tooltip="Cancelar y cerrar" placement="left" mesagge="Cancelar" accessKey='x' callback={() => { setOpenModal(false) }} />
             </div>
           </div>
         </Modal.Body>

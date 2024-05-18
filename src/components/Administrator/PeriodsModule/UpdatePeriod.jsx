@@ -1,8 +1,9 @@
-import { Label, TextInput, Button, Datepicker } from "flowbite-react";
+import { Label, TextInput, Datepicker } from "flowbite-react";
 import { useState, useContext } from "react";
 import { PeriodosContext } from "../../../context/PeriodosContext";
 import { Toaster, toast } from "react-hot-toast";
 import { useForm, usePut } from "../../../hooks";
+import CustomButton from "../../commons/buttons/CustomButton";
 
 const UpdatePeriod = ({id, numero: num, nombre_tipo: nt, fecha_inicio: fi, fecha_fin: ff, setOpenModal}) => {
     // uso de custom hook para manipulación de formulario
@@ -112,9 +113,9 @@ const UpdatePeriod = ({id, numero: num, nombre_tipo: nt, fecha_inicio: fi, fecha
                 </button>
 
                 {(!bloquearEdit && (
-                    <Button type="submit" className="active:scale-95 mt-4 px-2 bg-sky-600 mx-auto font-bold">
-                        Actualizar
-                    </Button>
+                    <div className="flex justify-center">
+                        < CustomButton type="submit" className="bg-sky-600 hover:bg-sky-800 mt-4" tooltip="Actualizar periodo" placement="right" mesagge="Actualizar" accessKey='s'/>
+                    </div>
                 )) ||
                 ""}
             </form>

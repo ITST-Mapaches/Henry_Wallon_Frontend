@@ -1,10 +1,11 @@
-import { Button, Label, TextInput, Datepicker, Select, ToggleSwitch} from "flowbite-react";
+import { Label, TextInput, Datepicker, Select, ToggleSwitch} from "flowbite-react";
 import { useState, useContext, useEffect } from "react";
 import { useFetch } from "../../../hooks/useFetch";
 import { useForm } from "../../../hooks/useForm";
 import { UsersContext } from "../../../context/UsersContextProvider";
 import { toast } from "react-hot-toast";
 import { usePut } from "../../../hooks";
+import CustomButton from "../../commons/buttons/CustomButton";
 
 const UpdateUser = ({ user, inputRole, rol, setOpenModal }) => {
   // obtencion de metodo cargar usuarios
@@ -304,9 +305,9 @@ const UpdateUser = ({ user, inputRole, rol, setOpenModal }) => {
         </button>
 
         {(!bloquearEdit && (
-          <Button type="submit" className="active:scale-95 mt-4 px-2 bg-sky-600 mx-auto font-bold">
-            Actualizar
-          </Button>
+          <div className="flex justify-center">
+            < CustomButton type="submit" className="bg-sky-600 hover:bg-sky-800 mt-4" tooltip="Actualizar usuario" placement="right" mesagge="Actualizar" accessKey='s'/>
+          </div>
         )) ||
           ""}
       </form>

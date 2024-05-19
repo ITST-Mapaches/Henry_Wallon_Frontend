@@ -1,6 +1,12 @@
-import {UpdateGroup, ModalEliminarGroup} from '../';
+import { useContext } from 'react';
+import {UpdateGroup } from '../';
+import { GruposContext } from '../../../context/GruposContextProvider';
+import { DeleteModal } from '../../commons/';
 
 const TableRowGroup = ({id, prefijo}) => {
+    // uso de contexto, desestructurando funcion para cargar grupos
+    const { getFetch: reloadGrupos } = useContext(GruposContext);
+
     return (
         <>
             <tr className="bg-primary">
@@ -20,7 +26,7 @@ const TableRowGroup = ({id, prefijo}) => {
                 <td className="p-4 rounded-r-2xl">
                     <div className="flex gap-4 items-center">
                         <UpdateGroup id={id} prefij={prefijo}/>
-                        <ModalEliminarGroup id={id} prefijo={prefijo} />
+                        < DeleteModal endpoint={`grupos/${id}`} elementDelete='grupo' infoDelete={ prefijo } callbackReloadData={() => { reloadGrupos() }} />
                     </div>
                 </td>
             </tr>

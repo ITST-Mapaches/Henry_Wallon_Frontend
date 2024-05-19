@@ -1,6 +1,10 @@
-import {EliminarPeriod, ModalViewPeriod} from "../"
+import { useContext } from "react";
+import { ModalViewPeriod} from "../"
+import { PeriodosContext } from "../../../context/PeriodosContext";
+import { DeleteModal } from '../../commons/';
 
 const TableRowPeriod = ({id, numero, nombre_tipo, fecha_inicio, fecha_fin}) => {
+    const { getFetch: reFetchPeriodos } = useContext(PeriodosContext);
     return (
         <>
             <tr className="bg-primary">
@@ -29,7 +33,7 @@ const TableRowPeriod = ({id, numero, nombre_tipo, fecha_inicio, fecha_fin}) => {
                 <td className="p-4 rounded-r-2xl">
                     <div className="flex gap-4 items-center">
                         < ModalViewPeriod id={id} />
-                        <EliminarPeriod id={id} numero={numero} />
+                        < DeleteModal endpoint={`periodos/${id}`} elementDelete="periodo escolar" infoDelete={`${numero} - ${nombre_tipo}`} callbackReloadData={() => { reFetchPeriodos() }} />
                     </div>
                 </td>
             </tr>

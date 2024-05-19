@@ -1,7 +1,13 @@
-import ModalEliminar from "./ModalEliminar";
+import { useContext } from "react";
+import { UsersContext } from "../../../context/UsersContextProvider";
 import ModalViewUser from "./ModalViewUser";
+import { DeleteModal } from '../../commons/';
 
 const TableRowUser = ({ id, name, username, activo, sexo, rol }) => {
+
+  // uso de contexto, desestructurando funcion para cargar usuarios
+  const { getFetch: loadUsers } = useContext(UsersContext);
+
   //objeto para determinar el color del fondo segun el rol
   const background = {
     Docente: "bg-indigo-500",
@@ -54,7 +60,7 @@ const TableRowUser = ({ id, name, username, activo, sexo, rol }) => {
         <td className="p-4 rounded-r-2xl">
           <div className="flex gap-4 items-center">
             <ModalViewUser id={id} rol={rol} />
-            <ModalEliminar id={id} name={name} />
+            <DeleteModal endpoint={`deleteUser/${id}`}  elementDelete="usuario" infoDelete={`${id}: ${name}`} callbackReloadData={() => { loadUsers() }}/>
           </div>
         </td>
       </tr>

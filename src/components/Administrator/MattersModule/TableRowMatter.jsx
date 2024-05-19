@@ -1,7 +1,11 @@
-import {ModalViewMatter, MatterModalEliminar} from "../"
+import { ModalViewMatter } from "../"
 import { Popover } from "flowbite-react"
+import { AsignaturasContext } from "../../../context/AsignaturasContextProvider";
+import { useContext } from "react";
+import { DeleteModal } from '../../commons/';
 
 const TableRowMatter = ({id, clave, nombre, objetivo, id_periodo, calificacion_aprobatoria}) => {
+    const { getFetch: cargarAsignaturas } = useContext(AsignaturasContext);
     return (
         <>
             <tr className="bg-primary">
@@ -43,7 +47,8 @@ const TableRowMatter = ({id, clave, nombre, objetivo, id_periodo, calificacion_a
                 <td className="p-4 rounded-r-2xl">
                 <div className="flex gap-4 items-center">
                     <ModalViewMatter id={id} />
-                    <MatterModalEliminar id={id} clave={clave} />
+                    {/* <MatterModalEliminar id={id} clave={clave} /> */}
+                    < DeleteModal endpoint={`asignaturas/${id}`} elementDelete="asignatura" infoDelete={`${clave} - ${nombre}`} callbackReloadData={() => { cargarAsignaturas() }} />
                 </div>
                 </td>
             </tr>

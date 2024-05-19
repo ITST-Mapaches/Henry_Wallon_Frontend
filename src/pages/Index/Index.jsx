@@ -20,7 +20,7 @@ const Index = ({user}) => {
                     </figcaption>
                 </figure>
                 <Link to={user ? urls[user.rol] : '/login'} className="-translate-x-[100vw] animate-traslate_x rounded-lg text-white bg-third py-2 px-4 text-base font-bold  hover:scale-105 active:scale-95">
-                    Iniciar
+                    {user ? 'Regresar' : 'Ingresar'}
                 </Link>
             </div>
         </div>

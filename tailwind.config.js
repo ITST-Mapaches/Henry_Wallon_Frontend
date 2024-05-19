@@ -17,6 +17,14 @@ export default {
       gridTemplateColumns: {
         'flex-grid' : 'repeat(auto-fill, minmax(250px, 1fr))'
       },
+      keyframes: {
+        traslate_x: {
+          '100%': {transform: 'translateX(0)', opacity: '1'}
+        }
+      },
+      animation: {
+        traslate_x: 'traslate_x .5s ease-in-out forwards'
+      }
     },
   },
   plugins: [flowbite.plugin()],

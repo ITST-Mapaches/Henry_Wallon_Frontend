@@ -1,11 +1,11 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/auth/Login";
 import "./App.css";
 import { TitleContextProvider } from "./context/TitleContextProvider";
 import ProtectedRoute from "./components/commons/ProtectedRoute";
 import { useContext } from "react";
 import { AuthContext } from "./context/AuthContextProvider";
-import { Administrator, Docente, Alumnos, Tutor } from "./pages/";
+import { Administrator, Docente, Alumnos, Tutor, Index } from "./pages/";
 
 
 function App() {
@@ -14,6 +14,13 @@ function App() {
   return (
     <>
       <Routes>
+        {/* raiz */}
+        <Route path="/" element={< Index user={user} />} />
+
+        {/* ruta perdida */}
+        <Route path="/*" element={< Navigate to="/" />} />
+
+        {/* login */}
         <Route path="/login" element={<Login />} />
 
         {/* administrador */}

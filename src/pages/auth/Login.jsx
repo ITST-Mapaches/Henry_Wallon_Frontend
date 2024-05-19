@@ -19,6 +19,7 @@ const Login = () => {
     password: "",
   });
 
+
   // funcion para manejar el envio del formulario
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -72,15 +73,15 @@ const Login = () => {
                 <label htmlFor="nombre_usuario" className="login__label">
                   Nombre de usuario
                 </label>
-                <input id="nombre_usuario" name="nombre_usuario" onChange={onInputChange} type="text" className="login__input" placeholder="Ingresa tu nombre de usuario" required minLength={5} value={nombre_usuario} autoComplete="true"/>
+                <input id="nombre_usuario" name="nombre_usuario" onChange={onInputChange} type="text" className="login__input" placeholder="Ingresa tu nombre de usuario" required minLength={5} maxLength={40} value={nombre_usuario} autoComplete="true"/>
               </div>
               <div className="login__item">
                 <label htmlFor="password" className="login__label">
                   Contraseña
                 </label>
-                <input id="password" name="password" onChange={onInputChange} type="password" className="login__input" placeholder="••••••••••" required  minLength={5} value={password} autoComplete="true"/>
+                <input id="password" name="password" onChange={onInputChange} type="password" className="login__input" placeholder="••••••••••" required  minLength={5} maxLength={20} value={password} autoComplete="true"/>
               </div>
-              <button className="login__button">Iniciar sesión</button>
+              <button type="submit" className="login__button">Iniciar sesión</button>
             </form>
           </div>
         </div>

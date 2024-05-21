@@ -18,7 +18,7 @@ const Alumnos = ({ user }) => {
 
   const descargarPDF = async (id) => {
     try {
-      const response = await axios.get("http://127.0.0.1:8000/api/getPDF/" + id , {
+      const response = await axios.get(`${import.meta.env.VITE_BASE_URL}getPDF/` + id , {
         responseType: "blob",
         headers: {
           Authorization: `Bearer ${user.token}`,
